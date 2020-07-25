@@ -1,0 +1,41 @@
+#!/bin/sh
+
+alias ....='cd ../../../' \
+      ...='cd ../../' \
+      ..='cd ..' \
+      aliasrc="nvim ~/.config/profile.d/alias" \
+      ccat="highlight --out-format=ansi" \
+      diff="diff --color=auto" \
+      g="git" \
+      grep='grep --color=auto' \
+      gua="git remote | xargs -L1 git push --all" \
+      ip='ip -c' \
+      ka="killall" \
+      la="lsd -lAh --color=auto --group-dirs=first" \
+      ls="lsd -lh --color=auto --group-dirs=first" \
+      lsp="pacman -Qett --color=always | less" \
+      mkd="mkdir -pv" \
+      mpv="mpv --input-ipc-server=/tmp/mpvsoc$(date +%s)" \
+      p="sudo pacman --color auto" \
+      pacman='pacman --color auto' \
+      screencast="ffmpeg -y -f x11grab -s 1366x768 -i :0.0 ~/Personal/Video/ffmpeg/out.mkv"\
+      sdn="sudo shutdown -h now" \
+      vdir='vdir --color=auto' \
+      vim="nvim" \
+      vimrc="nvim ~/.config/nvim/init.vim" \
+      watch='watch --color' \
+      x="sxiv -ft" \
+      yt="youtube-dl --add-metadata -i -o '%(upload_date)s-%(title)s.%(ext)s'" \
+      yta="yt -x -f bestaudio/best"
+
+man() {
+    env \
+        LESS_TERMCAP_mb=$(printf "\e[1;31m") \
+        LESS_TERMCAP_md=$(printf "\e[1;31m") \
+        LESS_TERMCAP_me=$(printf "\e[0m") \
+        LESS_TERMCAP_se=$(printf "\e[0m") \
+        LESS_TERMCAP_so=$(printf "\e[1;44;33m") \
+        LESS_TERMCAP_ue=$(printf "\e[0m") \
+        LESS_TERMCAP_us=$(printf "\e[1;32m") \
+            man "$@"
+}

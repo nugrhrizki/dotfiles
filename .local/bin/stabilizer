@@ -1,0 +1,3 @@
+#!/bin/bash
+
+ffmpeg -i $1 -vf vidstabdetect -f null - && ffmpeg -i $1 -vf vidstabtransform=input="transforms.trf" $2
