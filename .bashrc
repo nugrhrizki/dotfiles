@@ -32,3 +32,11 @@ set -o vi
 
 # Auto change directory if that is directory
 shopt -s autocd
+
+# Load profiles from .config/profile.d
+if test -d ~/.config/profile.d/; then
+    for profile in ~/.config/profile.d/*; do
+        test -r "$profile" && . "$profile"
+    done
+    unset profile
+fi
