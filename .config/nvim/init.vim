@@ -11,9 +11,10 @@ let mapleader = ' '
 let g:netrw_banner = 0
 let g:netrw_liststyle = 3
 set clipboard+=unnamedplus
-set mouse=a
 set encoding=utf-8
 set expandtab
+set mouse=a
+set noswapfile
 set number relativenumber
 set path+=**
 set shiftround
