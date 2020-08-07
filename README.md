@@ -1,9 +1,10 @@
 # Ini adalah judul dari sebuah repo
 
 ## Screenshot
+**_[Coming Soon]_**
 
 ## Alat Perang
-* Neovim
-* Tmux
-* ST
-* XMonad
+* neovim
+* tmux
+* st
+* dwm
