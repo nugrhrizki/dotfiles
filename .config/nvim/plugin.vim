@@ -40,3 +40,4 @@ autocmd VimEnter *
 source ~/.config/nvim/plugins/lookandfeel.vim
 source ~/.config/nvim/plugins/keybindings.vim
 source ~/.config/nvim/plugins/miscellaneous.vim
+source ~/.config/nvim/plugins/vimcoc.vim
