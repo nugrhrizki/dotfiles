@@ -9,5 +9,5 @@
   * nnn : _file manager_
   * tmux : _terminal multiplexer_
   * st : _terminal emulator_
-  * dwm : _window manager_
+  * xmonad : _window manager_
   * mpd & ncmpcpp : _music player_
