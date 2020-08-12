@@ -23,6 +23,7 @@ set smarttab
 set softtabstop=2
 set tabstop=2
 set wildignore+=**/node_modules/**,*.o,*.obj,**/elm-stuff/**
+" set guiheadroom=0 " if you are using gvim uncomment this
 
 "\_Mapping_/"
 inoremap <C-s> <Esc>:w<cr>
@@ -36,7 +37,6 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
-tnoremap <C-a> <C-\><C-N>:<c-u>WhichKey '<Space>'<CR>
 tnoremap <C-h> <C-\><C-N><C-w>h
 tnoremap <C-j> <C-\><C-N><C-w>j
 tnoremap <C-k> <C-\><C-N><C-w>k

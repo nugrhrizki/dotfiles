@@ -1,9 +1,0 @@
-#!/bin/sh
-
-export FZF_DEFAULT_OPTS="--reverse --height=40% --algo=v1"
-export CABAL_PATH="~/.local/share/cabal"
-export DENO_INSTALL="~/.local/share/deno"
-export GOPATH="$HOME/.local/share/go"
-export npm_config_prefix="~/.local/share/node/node_modules"
-
-export PATH="$PATH:$CABAL_PATH/bin:$DENO_INSTALL/bin:$GOPATH/bin:$npm_config_prefix/bin:~/.yarn/bin"

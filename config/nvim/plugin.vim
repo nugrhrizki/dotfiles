@@ -27,7 +27,8 @@ Plug 'junegunn/fzf.vim'
 Plug 'liuchengxu/vim-which-key'
 Plug 'tpope/vim-surround'
 Plug 'vimwiki/vimwiki'
-Plug 'tomasiser/vim-code-dark'
+Plug 'morhetz/gruvbox'
+" Plug 'tomasiser/vim-code-dark'
 
 call plug#end()
 

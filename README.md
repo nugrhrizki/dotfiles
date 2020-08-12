@@ -1,4 +1,4 @@
-# My own Linux dotfiles configuration
+# My own Linux configuration
 
 ## Screenshot
   ___[Coming Soon]___
