@@ -1,13 +1,2 @@
-# My own Linux configuration
-
-## Screenshot
-  ___[Coming Soon]___
-
-## Tools
-  * neovim : _text editor / code editor_
-  * bash : _shell_
-  * nnn : _file manager_
-  * tmux : _terminal multiplexer_
-  * st : _terminal emulator_
-  * xmonad : _window manager_
-  * mpd & ncmpcpp : _music player_
+# dotfiles
+Application configuration for GNU/Linux
