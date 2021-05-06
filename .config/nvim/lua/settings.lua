@@ -42,3 +42,8 @@ globvars.nvim_tree_follow = 1
 globvars.elm_setup_keybindings = 0
 globvars.elm_format_autosave = 1
 
+-- Floaterm
+globvars.floaterm_width = 0.8
+globvars.floaterm_height = 0.8
+globvars.floaterm_title = 0
+globvars.floaterm_autoclose = 1

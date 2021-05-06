@@ -29,4 +29,6 @@ return require('packer').startup(function()
 	use 'SirVer/ultisnips' -- Track the engine.
 	use 'honza/vim-snippets' -- Snippets are separated from the engine.
 	use 'vimwiki/vimwiki'
+	use 'voldikss/vim-floaterm'
+	use 'liuchengxu/vim-which-key'
 end)
