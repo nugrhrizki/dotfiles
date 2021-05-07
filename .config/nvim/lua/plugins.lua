@@ -31,4 +31,5 @@ return require('packer').startup(function()
 	use 'vimwiki/vimwiki'
 	use 'voldikss/vim-floaterm'
 	use 'liuchengxu/vim-which-key'
+	use 'junegunn/goyo.vim'
 end)

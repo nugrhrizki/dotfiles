@@ -53,12 +53,12 @@ require'compe'.setup {
     path = true;
     buffer = true;
     calc = true;
-    -- nvim_lsp = true;
-    nvim_lua = true;
-    -- vsnip = true;
-	tags = true;
+    nvim_lsp = false;
+    nvim_lua = false;
+    vsnip = false;
+	tags = false;
 	ultisnips = true;
-	-- nvim_treesitter = true;
+	nvim_treesitter = false;
   };
 }
 
