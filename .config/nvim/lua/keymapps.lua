@@ -3,6 +3,9 @@ local map = vim.api.nvim_set_keymap
 map('n', '<Space>', '<NOP>', { noremap = true, silent = true })
 vim.g.mapleader = ' '
 
+-- whichkey
+map('n', '<Leader>', ':WhichKey "<Space>"<CR>', { noremap = true, silent = true })
+
 -- explorer
 map('n', '<Leader>e', ':NvimTreeToggle<CR>', { noremap = true, silent = true })
 

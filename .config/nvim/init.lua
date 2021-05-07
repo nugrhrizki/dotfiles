@@ -17,23 +17,16 @@ require('colorizer').setup()
 --   }
 -- }
 
--- require'lspconfig'.bashls.setup{ capabilities = capabilities }
--- require'lspconfig'.cssls.setup{ capabilities = capabilities }
--- require'lspconfig'.elmls.setup{ capabilities = capabilities }
--- require'lspconfig'.html.setup{ capabilities = capabilities }
--- require'lspconfig'.pyright.setup{ capabilities = capabilities }
--- require'lspconfig'.tsserver.setup{ capabilities = capabilities }
--- require'lspconfig'.elixirls.setup{
--- 	cmd = { '/home/nugrhrizki/.local/share/elixir-ls/language_server.sh' },
--- 	capabilities = capabilities,
--- }
+require'lspconfig'.elmls.setup{} -- capabilities = capabilities }
+require'lspconfig'.pyright.setup{} -- capabilities = capabilities }
+require'lspconfig'.tsserver.setup{} -- capabilities = capabilities }
 
--- require'nvim-treesitter.configs'.setup {
---   ensure_installed = "maintained",
---   highlight = {
---     enable = true,
---   },
--- }
+require'nvim-treesitter.configs'.setup {
+  ensure_installed = "maintained",
+  highlight = {
+    enable = true,
+  },
+}
 
 require'compe'.setup {
   enabled = true;
@@ -61,4 +54,5 @@ require'compe'.setup {
 	nvim_treesitter = false;
   };
 }
+
 

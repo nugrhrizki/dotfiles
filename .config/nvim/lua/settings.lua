@@ -16,6 +16,7 @@ global.softtabstop = 4
 global.swapfile = false
 global.tabstop = 4
 global.termguicolors = true
+global.timeoutlen = 100
 
 -- window-local options
 window.colorcolumn = '81'
@@ -47,3 +48,6 @@ globvars.floaterm_width = 0.8
 globvars.floaterm_height = 0.8
 globvars.floaterm_title = 0
 globvars.floaterm_autoclose = 1
+
+-- Whichk Key
+globvars.which_key_use_floating_win = 0
