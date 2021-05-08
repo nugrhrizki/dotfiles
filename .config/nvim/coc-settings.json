@@ -1,5 +1,13 @@
 {
-  "explorer.width": 30,
-  "explorer.icon.enableNerdfont": true,
-  "explorer.previewAction.onHover": false
+	"explorer.width": 30,
+	"explorer.icon.enableNerdfont": true,
+	"explorer.previewAction.onHover": false,
+	"coc.preferences.formatOnSaveFiletypes": [
+		"html",
+		"css",
+		"json",
+		"sass",
+		"markdown"
+	],
+	"prettier.useTabs": true
 }
