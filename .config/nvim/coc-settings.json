@@ -2,6 +2,12 @@
 	"explorer.width": 30,
 	"explorer.icon.enableNerdfont": true,
 	"explorer.previewAction.onHover": false,
+	"explorer.git.enable": true,
+	"explorer.keyMappings.global": {
+		"h": ["wait", "expanded?", "collapse", "gotoParent"],
+		"l": ["wait", "expanded?", "cd", "expand"],
+		"o": ["wait", "expandable?", "expand", "open"]
+	},
 	"coc.preferences.formatOnSaveFiletypes": [
 		"html",
 		"css",
