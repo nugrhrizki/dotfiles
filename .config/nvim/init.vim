@@ -10,16 +10,19 @@ Plug '9mm/vim-closer'
 Plug 'honza/vim-snippets'
 Plug 'junegunn/goyo.vim'
 Plug 'lifepillar/vim-gruvbox8'
+Plug 'liuchengxu/vim-which-key'
 Plug 'SirVer/ultisnips'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'vimwiki/vimwiki'
 Plug 'voldikss/vim-floaterm'
 Plug 'vim-airline/vim-airline'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'norcalli/nvim-colorizer.lua'
 call plug#end()
 
 autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
-  \| PlugInstall --sync | source $MYVIMRC
+	\| PlugInstall --sync | source $MYVIMRC
 \| endif
 
 let mapleader=" "
@@ -82,3 +85,27 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc,*.db,*.sqlite
 " vim-airline
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
+
+lua << EOF
+require'colorizer'.setup(
+	{'*';},
+	{
+		RGB      = true;
+		RRGGBB   = true;
+		names    = true;
+		RRGGBBAA = true;
+		rgb_fn   = true;
+		hsl_fn   = true;
+		css      = true;
+		css_fn   = true;
+	})
+EOF
+
+nnoremap <silent> <leader> :silent WhichKey '<Space>'<CR>
+vnoremap <silent> <leader> :silent <c-u> :silent WhichKeyVisual '<Space>'<CR>
+
+let g:which_key_use_floating_win = 0
+
+autocmd! FileType which_key
+autocmd  FileType which_key set laststatus=0 noshowmode noruler
+	\| autocmd BufLeave <buffer> set laststatus=2 noshowmode ruler
