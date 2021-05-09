@@ -1,6 +1,7 @@
 {
 	"explorer.width": 30,
 	"explorer.previewAction.onHover": false,
+	"explorer.file.showHiddenFiles": true,
 	"explorer.git.enable": true,
 	"explorer.keyMappings.global": {
 		"h": ["wait", "expanded?", "collapse", "gotoParent"],
