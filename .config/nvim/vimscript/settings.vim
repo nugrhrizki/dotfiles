@@ -50,3 +50,6 @@ let g:floaterm_autoclose=1
 
 " which key
 let g:which_key_use_floating_win = 0
+
+" vim matchup
+let g:matchup_matchparen_offscreen = {'method': 'popup'}

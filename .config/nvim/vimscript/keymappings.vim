@@ -12,7 +12,9 @@ vnoremap <silent> <leader> :silent <c-u> :silent WhichKeyVisual '<Space>'<CR>
 let g:which_key_map =  {}
 
 let g:which_key_map['h'] = [ '<C-W>s'						, 'split below']
-let g:which_key_map['.'] = [ ':FloatermNew --wintype=split --height=20', 'filemanager'],
+let g:which_key_map['.'] = [
+	\ ':FloatermNew --wintype=split --height=20 lf',
+	\ 'filemanager' ]
 let g:which_key_map['T'] = [ ':Rg'							, 'search text' ]
 let g:which_key_map['v'] = [ '<C-W>v'						, 'split right']
 let g:which_key_map['z'] = [ 'Goyo'							, 'zen' ]
