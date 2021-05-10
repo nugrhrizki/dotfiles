@@ -27,6 +27,7 @@ Plug 'lambdalisue/fern.vim'
 Plug 'lambdalisue/fern-hijack.vim'
 Plug 'lambdalisue/fern-git-status.vim'
 Plug 'mhinz/vim-startify'
+Plug 'dbeniamine/cheat.sh-vim'
 call plug#end()
 
 autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
