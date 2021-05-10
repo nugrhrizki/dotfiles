@@ -1,4 +1,5 @@
-let mapleader=" "
+let mapleader = " "
+let localmapleader = " "
 
 set title
 set clipboard+=unnamedplus
@@ -15,7 +16,10 @@ set hidden
 set ignorecase
 set smartcase
 set incsearch
-set timeoutlen=100
+set timeoutlen=200
+set signcolumn=yes
+set shortmess+=c
+set updatetime=300
 
 set noexpandtab
 set shiftwidth=4
@@ -24,6 +28,8 @@ set softtabstop=4
 set tabstop=4
 
 set nohlsearch
+set nobackup
+set nowritebackup
 set noshowmode
 set noswapfile
 
@@ -53,3 +59,7 @@ let g:which_key_use_floating_win = 0
 
 " vim matchup
 let g:matchup_matchparen_offscreen = {'method': 'popup'}
+
+" startify
+let g:startify_custom_header =
+	  \ 'startify#center(startify#fortune#cowsay())'

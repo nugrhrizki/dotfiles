@@ -19,3 +19,8 @@ autocmd  FileType which_key set laststatus=0 noshowmode noruler
 
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
 autocmd BufEnter * if (winnr("$") == 1 && &filetype == 'coc-explorer') | q | endif
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
