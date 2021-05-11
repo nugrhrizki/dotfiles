@@ -15,6 +15,12 @@ autocmd BufWritePre *.[ch] %s/\%$/\r/e
 
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
+augroup my-glyph-palette
+  autocmd! *
+  autocmd FileType fern call glyph_palette#apply()
+  autocmd FileType nerdtree,startify call glyph_palette#apply()
+augroup END
+
 autocmd! FileType which_key
 autocmd  FileType which_key set laststatus=0 noshowmode noruler
 	\| autocmd BufLeave <buffer> set laststatus=2 noshowmode ruler

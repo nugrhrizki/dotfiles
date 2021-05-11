@@ -47,12 +47,15 @@ colorscheme gruvbox8
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 
-" Floaterm
+" floaterm
 let g:floaterm_autoinsert=1
 let g:floaterm_width=0.8
 let g:floaterm_height=0.8
 let g:floaterm_title=0
 let g:floaterm_autoclose=1
+
+" Fern
+let g:fern#renderer = "nerdfont"
 
 " which key
 let g:which_key_use_floating_win = 0
@@ -63,3 +66,6 @@ let g:matchup_matchparen_offscreen = {'method': 'popup'}
 " startify
 let g:startify_custom_header =
 	  \ 'startify#center(startify#fortune#cowsay())'
+
+" devicons
+let g:webdevicons_enable_startify = 1

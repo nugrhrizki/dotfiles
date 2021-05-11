@@ -26,7 +26,11 @@ Plug 'andymass/vim-matchup'
 Plug 'lambdalisue/fern.vim'
 Plug 'lambdalisue/fern-hijack.vim'
 Plug 'lambdalisue/fern-git-status.vim'
+Plug 'lambdalisue/fern-renderer-nerdfont.vim'
+Plug 'lambdalisue/nerdfont.vim'
+Plug 'lambdalisue/glyph-palette.vim'
 Plug 'mhinz/vim-startify'
+Plug 'ryanoasis/vim-devicons'
 Plug 'dbeniamine/cheat.sh-vim'
 call plug#end()
 
