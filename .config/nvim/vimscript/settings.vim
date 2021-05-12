@@ -65,7 +65,7 @@ let g:matchup_matchparen_offscreen = {'method': 'popup'}
 
 " startify
 let g:startify_custom_header =
-	  \ 'startify#center(startify#fortune#cowsay())'
+	\ 'startify#center(startify#fortune#cowsay())'
 
 " devicons
 let g:webdevicons_enable_startify = 1
