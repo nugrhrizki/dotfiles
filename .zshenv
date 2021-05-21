@@ -34,6 +34,14 @@ export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200'"
 export BROWSER=/usr/bin/w3m
 export EDITOR=/usr/bin/nvim
 
+export LESS_TERMCAP_mb=$'\e[1;32m'
+export LESS_TERMCAP_md=$'\e[1;32m'
+export LESS_TERMCAP_me=$'\e[0m'
+export LESS_TERMCAP_se=$'\e[0m'
+export LESS_TERMCAP_so=$'\e[01;33m'
+export LESS_TERMCAP_ue=$'\e[0m'
+export LESS_TERMCAP_us=$'\e[1;4;31m'
+
 # Java applications which use the XToolkit/XAWT backend may draw grey windows
 # only. The XToolkit/XAWT backend breaks ICCCM-compliance in recent JDK 1.5  and
 # early  JDK  1.6 versions,  because  it assumes a reparenting window manager.
