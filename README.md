@@ -12,5 +12,4 @@ User-specific application configuration files whose filename starts with a dot
 - [tmux](https://github.com/nugrhrizki/dotfiles/tree/main/.config/tmux) : terminal multiplexer
 
 ## Screenshot
-![screenshot #1](./misc/screenshot_001.png)
-![screenshot #2](./misc/screenshot_002.png)
+![screenshot](./misc/screenshot.png)
