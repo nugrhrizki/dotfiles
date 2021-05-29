@@ -8,6 +8,10 @@ _datetime() {
 	date '+%I:%M ~ %A, %d %b'
 }
 
+_memory () {
+	free --mebi | sed -n '2{p;q}' | awk '{printf ("%2.2fGiB/%2.2fGiB\n", ( $3 / 1024), ($2 / 1024))}'
+}
+
 case $1 in
 	datetime)
 		_datetime
@@ -15,6 +19,10 @@ case $1 in
 		;;
 	username)
 		whoami
+		exit 0
+		;;
+	memory)
+		_memory
 		exit 0
 		;;
 	* )

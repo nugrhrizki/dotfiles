@@ -1,2 +1,7 @@
 # auto generate by appimg
 local/exe/obsidian
+
+# neovim
+config/nvim/autoload
+config/nvim/plugged
+config/nvim/.netrwhist
