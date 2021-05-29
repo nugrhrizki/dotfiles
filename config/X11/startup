@@ -1,0 +1,10 @@
+#! /usr/bin/env sh
+eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
+export SSH_AUTH_SOCK
+
+# /usr/bin/volumeicon &
+/usr/bin/clipmenud &
+/usr/bin/xcompmgr &
+/usr/local/bin/dwmblocks &
+/usr/bin/lxpolkit &
+xwallpaper --zoom $XDG_CONFIG_HOME/wallpaper.*

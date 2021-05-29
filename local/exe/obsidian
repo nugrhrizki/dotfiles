@@ -1,0 +1,7 @@
+#! /usr/bin/env bash
+
+if [[ "$1" == 'delete' ]]; then
+	rm -rf /home/wright/.local/appimg/Obsidian-0.12.3.AppImage
+else
+	/home/wright/.local/appimg/Obsidian-0.12.3.AppImage
+fi

@@ -1,0 +1,69 @@
+#! /usr/bin/env bash
+
+# ----------------------------------------------------------------------------
+# appimg: simple appimage utility for install and uninstall
+# ----------------------------------------------------------------------------
+
+readonly EXE_PATH="${USRSCRIPT:-"$HOME/.local/exe"}"
+readonly STOCKPILE="${APPIMGPATH:-"$HOME/.local/appimg"}"
+readonly VERSION=1.0.0
+
+_usage() {
+read -r -d '' _usage_string <<EOF
+Usage:
+  appimg install <filename.AppImage> <executable_name>
+         uninstall <executable_name>
+
+Version: $VERSION
+EOF
+echo "$_usage_string"
+}
+
+_script() {
+local _appimg_executable=$1
+local _script_name=$2
+read -r -d '' _bootstrap <<EOF
+#! /usr/bin/env bash
+
+if [[ "\$1" == 'delete' ]]; then
+	rm -rf $STOCKPILE/$_appimg_executable
+else
+	$STOCKPILE/$_appimg_executable
+fi
+EOF
+echo "$_bootstrap" > "$EXE_PATH/$_script_name"
+chmod +x "$EXE_PATH/$_script_name"
+}
+
+_install() {
+	local _appimg_executable=$1
+	local _script_name=$2
+	if ! [[ -d "$EXE_PATH" ]]; then
+		mkdir -p $EXE_PATH
+	fi
+	if ! [[ -d "$STOCKPILE" ]]; then
+		mkdir -p $STOCKPILE
+	fi
+	chmod +x $_appimg_executable
+	cp $_appimg_executable $STOCKPILE
+	_script $_appimg_executable $_script_name
+}
+
+_uninstall() {
+	local _script_name=$1
+	$_script_name delete
+	rm -rf $EXE_PATH/$_script_name
+}
+
+main() {
+	if [[ "$1" == 'install' ]]; then
+		_install $2 $3
+	elif [[ "$1" == 'uninstall' ]]; then
+		_uninstall $2
+	else
+		_usage
+		exit 1
+	fi
+}
+
+main "$1" "$2" "$3"

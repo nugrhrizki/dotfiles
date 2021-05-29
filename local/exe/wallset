@@ -1,0 +1,30 @@
+#! /usr/bin/env bash
+
+# ---------------------------------------------------------------------------
+# wallset: simple wallpaper setter
+# ---------------------------------------------------------------------------
+
+# requirement:
+#   xwallpaper
+#   sxiv
+
+WALL_DIR="$XDG_DATA_HOME"/backgrounds
+
+wallpath="$(sxiv -tb $WALL_DIR)"
+case $wallpath in
+	*.png)
+		wallext="png"
+		;;
+	*.jpg)
+		wallext="jpg"
+		;;
+	*.jpeg)
+		wallext="jpeg"
+		;;
+	*)
+		echo "unknown"
+		exit 1
+		;;
+esac
+
+ln -sf $wallpath "$(echo $XDG_CONFIG_HOME/wallpaper.$wallext)"
