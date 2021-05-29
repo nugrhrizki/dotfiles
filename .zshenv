@@ -56,3 +56,6 @@ export LESS_TERMCAP_us=$'\e[1;4;31m'
 # only. The XToolkit/XAWT backend breaks ICCCM-compliance in recent JDK 1.5  and
 # early  JDK  1.6 versions,  because  it assumes a reparenting window manager.
 export _JAVA_AWT_WM_NONREPARENTING=1
+
+# nix
+if [ -e /home/wright/.nix-profile/etc/profile.d/nix.sh ]; then . /home/wright/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer

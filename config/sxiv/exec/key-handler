@@ -14,7 +14,7 @@ case "$1" in
 	"C-g")
 		tr '\n' '\0' | xargs -0 gimp &
 		;;
-	"C-w")
+	"w")
 		wallset_int
 		;;
 esac
