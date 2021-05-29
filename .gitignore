@@ -1,4 +1,2 @@
-.config/nvim/plugged/
-./.config/nvim/autoload/
-
-.config/zsh/.zcompdump
+# auto generate by appimg
+local/exe/obsidian
