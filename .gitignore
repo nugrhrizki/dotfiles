@@ -5,3 +5,5 @@ local/exe/obsidian
 config/nvim/autoload
 config/nvim/plugged
 config/nvim/.netrwhist
+
+config/zsh/.zcompdump
