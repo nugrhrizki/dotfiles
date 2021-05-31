@@ -8,6 +8,7 @@ wallset_int() {
 	local wallpath=$(tr '\n' '\0' | xargs -0 echo)
 	xwallpaper --zoom $wallpath
 	echo $wallpath
+	pkill -9 sxiv
 }
 
 case "$1" in

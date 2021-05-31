@@ -1,10 +1,24 @@
-#! /usr/bin/env sh
+#! /usr/bin/env bash
 eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
 export SSH_AUTH_SOCK
 
-# /usr/bin/volumeicon &
 /usr/bin/clipmenud &
 /usr/bin/xcompmgr &
+/usr/bin/mpd &
 /usr/local/bin/dwmblocks &
 /usr/bin/lxpolkit &
-xwallpaper --zoom $XDG_CONFIG_HOME/wallpaper.*
+/usr/local/bin/xclickroot -r $HOME/.local/exe/menu &
+/usr/bin/xset r rate 300 50 &
+/usr/bin/redshift &
+/usr/bin/unclutter &
+
+[ -f $XDG_CONFIG_HOME/wallpaper.png ] && /usr/bin/xwallpaper --zoom $XDG_CONFIG_HOME/wallpaper.png
+[ -f $XDG_CONFIG_HOME/wallpaper.jpg ] && /usr/bin/xwallpaper --zoom $XDG_CONFIG_HOME/wallpaper.jpg
+[ -f $XDG_CONFIG_HOME/wallpaper.jpeg ] && /usr/bin/xwallpaper --zoom $XDG_CONFIG_HOME/wallpaper.jpeg
+
+# This line autostarts an instance of Pulseaudio that does not exit on idle.
+# This is "necessary" on Artix due to a current bug between PA and
+# Chromium-based browsers where they fail to start PA and use dummy output.
+pidof -s runit &&
+	! pidof -s pulseaudio >/dev/null 2>&1 &&
+	setsid -f pulseaudio --start --exit-idle-time=-1 >/dev/null 2>&1

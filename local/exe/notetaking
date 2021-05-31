@@ -1,0 +1,11 @@
+#! /usr/bin/env bash
+
+notes_file="$HOME/xdg/pub/notes/notes-$(date +%Y-%m-%d).md"
+
+[ ! -f $notes_file ] && echo "# Notes for $(date +%Y-%m-%d)" > $notes_file
+
+nvim -c "norm Go" \
+	-c "norm Go## $(date +%H:%M)" \
+	-c "norm G2o" \
+	-c "norm zz" \
+	-c "startinsert" $notes_file
