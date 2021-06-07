@@ -25,7 +25,9 @@ export HISTFILE="${XDG_DATA_HOME:-$HOME/.local/share}/history"
 export LESSHISTFILE="-"
 export LESSHISTFILE="${XDG_CACHE_HOME:-$HOME/.cache}/less/history"
 export LESSKEY="${XDG_CONFIG_HOME:-$HOME/.config}/less/lesskey"
+export NODE_REPL_HISTORY="${XDG_DATA_HOME:-$HOME/.local/share}/node_repl_history"
 export NOTMUCH_CONFIG="${XDG_CONFIG_HOME:-$HOME/.config}/notmuch-config"
+export NPM_CONFIG_USERCONFIG="${XDG_CONFIG_HOME:-$HOME/.config}/npm/npmrc"
 export MBSYNCRC="${XDG_CONFIG_HOME:-$HOME/.config}/isync/mbsyncrc"
 export PASSWORD_STORE_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/pass"
 export WGETRC="${XDG_CONFIG_HOME:-$HOME/.config}/wget/wgetrc"
@@ -35,6 +37,7 @@ export ZDOTDIR="${XDG_CONFIG_HOME:-$HOME/.config}/zsh"
 export FZF_CTRL_T_OPTS="--preview '(highlight -O ansi -l {} 2> /dev/null || bat {} || tree -C {}) 2> /dev/null | head -200'"
 export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200'"
 export FZF_DEFAULT_OPTS="--preview '(highlight -O ansi -l {} 2> /dev/null || bat {} || tree -C {}) 2> /dev/null | head -200' --reverse --height=20 --algo=v1"
+export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
 
 export LESS=-R
 export LESS_TERMCAP_mb="$(printf '%b' '[1;31m')"
@@ -55,9 +58,10 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 
 export APPIMGPATH="$HOME"/.local/appimg
 export USRSCRIPT="$HOME"/.local/exe
+export NODEJSBIN="${XDG_DATA_HOME:-$HOME/.local/share}/npm/bin"
 
 # registered path
-export PATH="$USRSCRIPT:$PATH"
+export PATH="$NODEJSBIN:$USRSCRIPT:$PATH"
 
 if pacman -Qs libxft-bgra >/dev/null 2>&1; then
 	# Start graphical server on user's current tty if not already running.

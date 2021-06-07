@@ -27,4 +27,7 @@ case $wallpath in
 		;;
 esac
 
+rm -rf $XDG_CONFIG_HOME/wallpaper.png
+rm -rf $XDG_CONFIG_HOME/wallpaper.jpg
+rm -rf $XDG_CONFIG_HOME/wallpaper.jpeg
 ln -sf $wallpath "$(echo $XDG_CONFIG_HOME/wallpaper.$wallext)"

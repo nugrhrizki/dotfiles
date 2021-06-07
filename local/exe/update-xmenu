@@ -14,4 +14,5 @@ $(xdg-xmenu -t st)
 EOF
 echo "$_usage_string" > $XMENU_SCRIPT;echo 'EOF' >> $XMENU_SCRIPT;chmod +x $XMENU_SCRIPT
 echo "refresh xclickroot"
-killall -q xclickroot;setsid xclickroot -r $XMENU_SCRIPT &
+killall -q xclickroot
+setsid -f xclickroot -r $XMENU_SCRIPT
