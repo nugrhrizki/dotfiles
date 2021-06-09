@@ -248,48 +248,46 @@ nnoremap <silent> <leader>z :Goyo \| set linebreak<CR>
 " ===========================================================================
 " STATUSLINE {{
 
-set laststatus=2
 set statusline=
-set statusline+=%{Space()}
+set statusline+=%{Spacing()}
 set statusline+=%{StatuslineMode()}
-set statusline+=%{Space()}
+set statusline+=%{Spacing()}
 set statusline+=%1*
-set statusline+=%{Space()}
+set statusline+=%{Spacing()}
 set statusline+=%2*
 set statusline+=%f
 set statusline+=%1*
-set statusline+=%{Space()}
-set statusline+=%m
-set statusline+=%h
-set statusline+=%r
-set statusline+=%{Space()}
-set statusline+=%{Space()}
+set statusline+=%{Spacing()}
+set statusline+=%{Status()}
+set statusline+=%4*
+set statusline+=%{Separator()}
+set statusline+=%1*
+set statusline+=%{Spacing()}
 set statusline+=%l
 set statusline+=:
 set statusline+=%L
-set statusline+=%{Space()}
+set statusline+=%{Spacing()}
 set statusline+=%P
 set statusline+=%=
-set statusline+=%{&ff}
-set statusline+=%{Space()}
-set statusline+=%{Space()}
-set statusline+=%{strlen(&fenc)?&fenc:'none'}
-set statusline+=%{Space()}
-set statusline+=%{Space()}
+set statusline+=%{FileFormat()}
+set statusline+=%{Encoding()}
 set statusline+=%3*
 set statusline+=%{b:gitbranch}
 set statusline+=%2*
-set statusline+=%y
-set statusline+=%1*
-set statusline+=%{Space()}
+set statusline+=%{FileType()}
 
-function! Space()
+function! Spacing()
 	return " "
+endfunction
+
+function! Separator()
+	return "|"
 endfunction
 
 hi User1 cterm=none gui=none ctermbg=black ctermfg=white guibg=black guifg=white
 hi User2 cterm=bold gui=bold ctermbg=black ctermfg=white guibg=black guifg=white
 hi User3 cterm=none gui=none ctermbg=black ctermfg=lightgreen guibg=black guifg=lightgreen
+hi User4 cterm=none gui=none ctermbg=black ctermfg=darkgrey guibg=black guifg=darkgrey
 
 function! StatuslineMode()
 	let l:mode=mode()
@@ -312,6 +310,48 @@ function! StatuslineMode()
 	endif
 endfunction
 
+function! FileType()
+	if strlen(&filetype)
+		return &filetype." "
+	endif
+	return ""
+endfunction
+
+function! Encoding()
+	if &filetype == "fern"
+		return ""
+	endif
+	if strlen(&fileencoding)
+		return &fileencoding." "
+	else
+		return "none "
+	endif
+endfunction
+
+function! FileFormat()
+	if &filetype == "fern"
+		return ""
+	endif
+	if strlen(&fileformat)
+		return &fileformat." "
+	endif
+endfunction
+
+function! Status()
+	if &filetype == "fern"
+		return ""
+	endif
+	if &modified && &readonly
+		return "[+][RO] "
+	elseif &modified
+		return "[+] "
+	elseif &readonly
+		return "[RO] "
+	else
+		return ""
+	endif
+endfunction
+
 function! StatuslineGitBranch()
 	let b:gitbranch=""
 	if &modifiable
@@ -319,7 +359,7 @@ function! StatuslineGitBranch()
 			let l:dir=expand('%:p:h')
 			let l:gitrevparse = system("git -C ".l:dir." rev-parse --abbrev-ref HEAD")
 			if !v:shell_error
-			let b:gitbranch="  ".substitute(l:gitrevparse, '\n', '', 'g')."  "
+			let b:gitbranch=" ".substitute(l:gitrevparse, '\n', '', 'g')." "
 			endif
 		catch
 		endtry

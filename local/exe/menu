@@ -1,31 +1,28 @@
 #! /usr/bin/env sh
 
-xmenu <<EOF | sh &
+xmenu -i <<EOF | sh &
 Accessories
 	Neovim (Text Editor)	st -e nvim
 	Passwords and Keys	seahorse
 	Redshift (Color temperature adjustment)	redshift-gtk
+Games
+	Dwarf Fortress (Dwarf Fortress)	dwarffortress
 Graphics
 	GNU Image Manipulation Program (Image Editor)	gimp-2.10
 Internet
-	Avahi SSH Server Browser	/usr/bin/bssh
-	Avahi VNC Server Browser	/usr/bin/bvnc
 	Brave (Web Browser)	brave
 	Chromium (Web Browser)	/usr/bin/chromium
+	Telegram Desktop	telegram-desktop --
 Multimedia
 	GTK Pipe Viewer	gtk-pipe-viewer
 	mpv Media Player (Multimedia player)	mpv --player-operation-mode=pseudo-gui --
 	PulseAudio Volume Control (Volume Control)	pavucontrol
-	Qt V4L2 test Utility	qv4l2
-	Qt V4L2 video capture utility	qvidcap
 	SimpleScreenRecorder	simplescreenrecorder --logfile
 	SoundWire Server	SoundWireServer
 Office
 	Zathura	zathura
 System
-	Avahi Zeroconf Browser	/usr/bin/avahi-discover
-	Hardware Locality lstopo	lstopo
 	Htop (Process Viewer)	st -e htop
-	st	st
-	Update xmenu	update-xmenu
+Refresh	update-xmenu
+Terminal	st
 EOF
