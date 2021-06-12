@@ -12,13 +12,17 @@ call plug#begin(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/plugged"
 
 	Plug 'junegunn/goyo.vim'
 	Plug 'junegunn/seoul256.vim'
-	Plug 'vimwiki/vimwiki'
+	Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+	Plug 'junegunn/fzf.vim'
+	Plug 'terrortylor/nvim-comment'
+	Plug 'norcalli/nvim-colorizer.lua'
 	Plug 'andymass/vim-matchup'
 	Plug 'tpope/vim-fugitive'
 	Plug 'preservim/tagbar'
+	Plug 'dhruvasagar/vim-dotoo'
 	Plug 'ElmCast/elm-vim'
+	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 	Plug 'voldikss/vim-floaterm'
-	Plug 'christoomey/vim-tmux-navigator'
 	Plug 'lambdalisue/fern.vim'
 
 call plug#end()
@@ -48,6 +52,7 @@ set mouse=a
 set backspace=indent,eol,start
 set completeopt=menuone,noselect
 set relativenumber number
+set termguicolors
 set hidden
 set ignorecase
 set smartcase
@@ -61,7 +66,6 @@ set shiftwidth=4
 set smarttab
 set softtabstop=4
 set noshowmode
-set noruler
 set laststatus=2
 set noshowcmd
 set tabstop=4
@@ -195,12 +199,21 @@ let g:floaterm_title=0
 let g:floaterm_autoclose=1
 
 
-" tmux navigator
-let g:tmux_navigator_disable_when_zoomed = 1
-
-
 " seoul256
+let g:seoul256_srgb = 1
 colorscheme seoul256
+
+
+" deoplete.
+let g:deoplete#enable_at_startup = 1
+
+
+" nvim-comment
+lua require('nvim_comment').setup()
+
+
+" nvim-colorizer
+lua require('colorizer').setup()
 
 
 " fern
@@ -265,7 +278,7 @@ set statusline+=%1*
 set statusline+=%{Spacing()}
 set statusline+=%l
 set statusline+=:
-set statusline+=%L
+set statusline+=%c
 set statusline+=%{Spacing()}
 set statusline+=%P
 set statusline+=%=
@@ -284,10 +297,10 @@ function! Separator()
 	return "|"
 endfunction
 
-hi User1 cterm=none gui=none ctermbg=black ctermfg=white guibg=black guifg=white
-hi User2 cterm=bold gui=bold ctermbg=black ctermfg=white guibg=black guifg=white
-hi User3 cterm=none gui=none ctermbg=black ctermfg=lightgreen guibg=black guifg=lightgreen
-hi User4 cterm=none gui=none ctermbg=black ctermfg=darkgrey guibg=black guifg=darkgrey
+hi User1 cterm=none gui=none ctermbg=238 ctermfg=white guibg=238 guifg=white
+hi User2 cterm=bold gui=bold ctermbg=238 ctermfg=white guibg=238 guifg=white
+hi User3 cterm=none gui=none ctermbg=238 ctermfg=lightgreen guibg=238 guifg=lightgreen
+hi User4 cterm=none gui=none ctermbg=238 ctermfg=darkgrey guibg=238 guifg=darkgrey
 
 function! StatuslineMode()
 	let l:mode=mode()
