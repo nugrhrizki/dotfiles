@@ -124,10 +124,6 @@ M.get_filetype = function()
 	return string.format(" %s %s ", icon, filetype):lower()
 end
 
-M.get_tabwidth = function()
-	return string.format(" Tab Size: %s ", vim.bo.tabstop)
-end
-
 M.get_fileencoding = function()
 	local fileencoding = vim.bo.fileencoding
 
@@ -135,6 +131,33 @@ M.get_fileencoding = function()
 		return " none "
 	end
 	return string.format(" %s ", fileencoding):upper()
+end
+
+M.get_filesize = function()
+	local file = vim.fn.expand('%:p')
+	if string.len(file) == 0 then return '' end
+	return M.format_file_size(file)
+end
+
+M.format_file_size = function(file)
+	local size = vim.fn.getfsize(file)
+	if size == 0 or size == -1 or size == -2 then
+		return ''
+	end
+	if size < 1024 then
+		size = size .. 'b'
+	elseif size < 1024 * 1024 then
+		size = string.format('%.1f',size/1024) .. 'k'
+	elseif size < 1024 * 1024 * 1024 then
+		size = string.format('%.1f',size/1024/1024) .. 'm'
+	else
+		size = string.format('%.1f',size/1024/1024/1024) .. 'g'
+	end
+	return ' ' .. size .. ' '
+end
+
+M.get_tabwidth = function()
+	return string.format(" Tab Size: %s ", vim.bo.tabstop)
 end
 
 M.get_line_col = function()
@@ -177,6 +200,7 @@ M.set_active = function(self)
 
 	local filetype_alt = colors.filetype_alt .. self.separators[active_sep][2]
 	local filetype = colors.filetype .. self:get_filetype()
+	local filesize = colors.filetype .. self:get_filesize()
 	local fileencoding = colors.filetype .. self:get_fileencoding()
 	local fileencoding_alt = colors.filetype_alt .. self.separators[active_sep][2]
 	local line_col = colors.line_col .. self:get_line_col()
@@ -187,6 +211,7 @@ M.set_active = function(self)
 
 	return table.concat({
 		colors.active,
+		filesize,
 		git,
 		git_alt,
 		lsp,

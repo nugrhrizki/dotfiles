@@ -1,14 +1,5 @@
 add_newline = false
 
-format = """
-$hostname[:](bold black)[⌈](blue)$username[⌋](blue)[:](bold black)\
-$shlvl$kubernetes$directory$vcsh$git_branch$git_commit$git_state\
-$git_status$hg_branch$docker_context$package$cmake$dart$deno$dotnet\
-$elixir$elm$erlang$golang$helm$java$julia$kotlin$nim$nodejs$ocaml\
-$perl$php$purescript$python$red$ruby$rust$scala$swift$terraform$vlang\
-$vagrant$zig$nix_shell$conda$memory_usage$aws$gcloud$openstack$env_var\
-$crystal$custom$lua$jobs$battery$time$status$shell$character"""
-
 [character]
 success_symbol = "[»](bold green)"
 error_symbol = "[»](bold red)"
@@ -16,9 +7,12 @@ vicmd_symbol = "[«](bold green)"
 
 [username]
 show_always = true
-format = "[$user]($style)"
+format = '[[\[](blue)$user[\]](blue)[:](bold black)]($style)'
 
 [hostname]
 ssh_only = false
-format =  "[$hostname](bold red)"
+format =  '[$hostname[:](bold black)](bold red)'
 disabled = false
+
+[line_break]
+disabled = true

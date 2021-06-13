@@ -54,4 +54,9 @@ source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.
 source /usr/share/fzf/completion.zsh
 source /usr/share/fzf/key-bindings.zsh
 
+function set_win_title(){
+    echo -ne "\033]0; $(basename "$PWD") - simple terminal\007"
+}
+precmd_functions+=(set_win_title)
+
 eval "$(starship init zsh)"

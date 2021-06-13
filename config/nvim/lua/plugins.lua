@@ -19,14 +19,14 @@ return require('packer').startup(function()
 	use { 'lewis6991/gitsigns.nvim',
 		requires = { 'nvim-lua/plenary.nvim' },
 		config = function()
-			require('gitsigns').setup()
+			require'gitsigns'.setup()
 		end }
 	use 'sheerun/vim-polyglot'
 	use 'nvim-lua/lsp-status.nvim'
 	use 'preservim/tagbar'
 	use { 'mhartington/formatter.nvim',
 		config = function()
-			require('formatter').setup({
+			require'formatter'.setup({
 				logging = false,
 				filetype = {
 					javascript = { -- prettier
