@@ -1,13 +1,5 @@
 #! /usr/bin/env bash
 
-# ---------------------------------------------------------------------------
-# wallset: simple wallpaper setter
-# ---------------------------------------------------------------------------
-
-# requirement:
-#   xwallpaper
-#   sxiv
-
 WALL_DIR="$XDG_DATA_HOME"/backgrounds
 
 wallpath="$(sxiv -tb $WALL_DIR)"

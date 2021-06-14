@@ -2,6 +2,7 @@ vim.g.mapleader = ' '
 vim.b.mapleader = ' '
 
 vim.o.title = true
+vim.o.titlestring = ' %t %m %f'
 vim.o.clipboard = 'unnamedplus'
 vim.o.mouse = 'a'
 vim.o.completeopt = 'menuone,noselect'
@@ -37,6 +38,7 @@ vim.o.backup = false
 vim.o.writebackup = false
 vim.o.swapfile = false
 vim.wo.list = true
+vim.o.modelineexpr = true
 vim.o.listchars = 'tab:▸ ,eol:¬,nbsp:␣,extends:…,precedes:<,extends:>,trail:·'
 vim.wo.listchars = 'tab:▸ ,eol:¬,nbsp:␣,extends:…,precedes:<,extends:>,trail:·'
 vim.o.wildignore = '*/tmp/*,*.so,*.swp,*.zip,*.pyc,*.db,*.sqlite'

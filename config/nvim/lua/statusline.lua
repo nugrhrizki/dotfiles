@@ -3,30 +3,11 @@ local api = vim.api
 
 local M = {}
 
--- possible values are 'arrow' | 'rounded' | 'blank'
-local active_sep = "blank"
-
--- change them if you want to different separatora
-M.separators = {
-	arrow   = { "", "" },
-	rounded = { "", "" },
-	blank   = { "", "" },
-}
-
 -- highlight groups
+-- TODO: add blink to statusline
 M.colors = {
 	active       = "%#StatusLine#",
 	inactive     = "%#StatusLineNC#",
-	mode         = "%#StatusLineMode#",
-	mode_alt     = "%#StatusLineModeAlt#",
-	git          = "%#StatusLineGit#",
-	git_alt      = "%#StatusLineGitAlt#",
-	filetype     = "%#StatusLineFT#",
-	filetype_alt = "%#StatusLineFTAlt#",
-	line_col     = "%#StatusLineLCol#",
-	line_col_alt = "%#StatusLineLColAlt#",
-	lsp          = "%#StatusLineLSP#",
-	filename     = "%#StatusLineFileName#",
 }
 
 M.trunc_width = setmetatable({
@@ -86,7 +67,7 @@ M.get_git_status = function(self)
 	end
 
 	return is_head_empty and string.format(
-	" +%s ~%s -%s   %s ",
+	"  %s 柳%s  %s   %s ",
 	signs.added,
 	signs.changed,
 	signs.removed,
@@ -113,6 +94,14 @@ M.get_filename = function()
 	return filename
 end
 
+local function tchelper(first, rest)
+	return first:upper()..rest:lower()
+end
+
+local function firstUpper(str)
+	return str:gsub("(%a)([%w_']*)", tchelper)
+end
+
 M.get_filetype = function()
 	local file_name, file_ext = fn.expand("%:t"), fn.expand("%:e")
 	local icon = require("nvim-web-devicons").get_icon(file_name, file_ext, { default = true })
@@ -121,7 +110,10 @@ M.get_filetype = function()
 	if filetype == "" then
 		return " No FT "
 	end
-	return string.format(" %s %s ", icon, filetype):lower()
+
+	filetype = string.format(" %s %s ", icon, filetype):lower()
+
+	return firstUpper(filetype)
 end
 
 M.get_fileencoding = function()
@@ -184,51 +176,36 @@ end
 M.set_active = function(self)
 	local colors = self.colors
 
-	local mode = colors.mode .. self:get_current_mode()
-	local mode_alt = colors.mode_alt .. self.separators[active_sep][1]
-	local git = colors.git .. self:get_git_status()
-	local git_alt = colors.git_alt .. self.separators[active_sep][1]
+	local mode = self:get_current_mode()
+	local git = self:get_git_status()
 
 	local filename = string.format(
-		"%s%s%s%s%s",
-		colors.inactive,
+		"%s%s",
 		self:get_filepath(),
-		colors.filename,
-		self:get_filename(),
-		colors.inactive
+		self:get_filename()
 	)
 
-	local filetype_alt = colors.filetype_alt .. self.separators[active_sep][2]
-	local filetype = colors.filetype .. self:get_filetype()
-	local filesize = colors.filetype .. self:get_filesize()
-	local fileencoding = colors.filetype .. self:get_fileencoding()
-	local fileencoding_alt = colors.filetype_alt .. self.separators[active_sep][2]
-	local line_col = colors.line_col .. self:get_line_col()
-	local line_col_alt = colors.line_col_alt .. self.separators[active_sep][2]
-	local tabwidth = colors.filetype .. self:get_tabwidth()
-	local position = colors.filetype .. self:get_position()
-	local lsp = colors.lsp .. self:lsp_progress()
+	local filetype = self:get_filetype()
+	local filesize = self:get_filesize()
+	local fileencoding = self:get_fileencoding()
+	local line_col = self:get_line_col()
+	local tabwidth = self:get_tabwidth()
+	local position = self:get_position()
+	local lsp = self:lsp_progress()
 
 	return table.concat({
 		colors.active,
 		filesize,
 		git,
-		git_alt,
 		lsp,
+		filename,
 		line_col,
-		line_col_alt,
 		mode,
-		mode_alt,
 		colors.inactive,
 		"%=",
 		colors.active,
-		filename,
-		colors.inactive,
-		"%=",
 		tabwidth,
-		fileencoding_alt,
 		fileencoding,
-		filetype_alt,
 		filetype,
 		position,
 	})
@@ -239,8 +216,7 @@ M.set_inactive = function(self)
 end
 
 M.set_explorer = function(self)
-	local title = self.colors.mode .. "   "
-	local title_alt = self.colors.mode_alt .. self.separators[active_sep][2]
+	local title = "   "
 
 	return table.concat({ self.colors.active, title, title_alt })
 end

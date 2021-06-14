@@ -3,7 +3,7 @@
 # Use neovim for vim if present.
 [ -x "$(command -v nvim)" ] && alias vim="nvim" vimdiff="nvim -d"
 
-# Use $XINITRC variable if file exists.
+# Use $XINITRC variable if exists.
 [ -f "$XINITRC" ] && alias startx="startx $XINITRC"
 
 # Verbosity and settings that you pretty much just always are going to want.
@@ -20,12 +20,11 @@ alias \
 	ls="ls -hN --color=auto --group-directories-first" \
 	grep="grep --color=auto" \
 	diff="diff --color=auto" \
-	ccat="highlight --out-format=ansi" \
-	ssr="simplescreenrecorder"
+	ccat="highlight --out-format=ansi"
 
 # These common commands are just too long! Abbreviate them.
 alias \
 	ka="killall" \
-	e="$EDITOR" \
 	v="$EDITOR" \
+	ssr="simplescreenrecorder" \
 	z="zathura"

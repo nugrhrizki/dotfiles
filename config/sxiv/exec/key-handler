@@ -4,7 +4,7 @@
 # where C/M/S indicate Ctrl/Meta(Alt)/Shift modifier states and KEY is the X
 # keysym as listed in /usr/include/X11/keysymdef.h without the "XK_" prefix.
 
-wallset_int() {
+wallset() {
 	local wallpath=$(tr '\n' '\0' | xargs -0 echo)
 	xwallpaper --zoom $wallpath
 	echo $wallpath
@@ -12,10 +12,10 @@ wallset_int() {
 }
 
 case "$1" in
-	"C-g")
+	"C-g") # C-x C-g
 		tr '\n' '\0' | xargs -0 gimp &
 		;;
-	"w")
-		wallset_int
+	"w") # C-x w
+		wallset
 		;;
 esac

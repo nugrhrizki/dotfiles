@@ -2,7 +2,7 @@
 
 # Make sure this is before the 'exec' command or it won't be sourced.
 [ -f /etc/xprofile ] && . /etc/xprofile
-[ -f ~/.config/X11/startup ] && . ~/.config/X11/startup
-[ -f ~/.config/X11/xresources ] && xrdb ~/.config/X11/xresources
+[ -f ~/.config/x11/startup ] && . ~/.config/x11/startup
+[ -f ~/.config/x11/xresources ] && xrdb ~/.config/x11/xresources
 
 exec dwm
