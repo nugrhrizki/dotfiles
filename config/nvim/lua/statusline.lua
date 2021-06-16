@@ -194,6 +194,7 @@ M.set_active = function(self)
 	local lsp = self:lsp_progress()
 
 	return table.concat({
+		"▌",
 		colors.active,
 		filesize,
 		git,
@@ -201,9 +202,7 @@ M.set_active = function(self)
 		filename,
 		line_col,
 		mode,
-		colors.inactive,
 		"%=",
-		colors.active,
 		tabwidth,
 		fileencoding,
 		filetype,
@@ -212,7 +211,7 @@ M.set_active = function(self)
 end
 
 M.set_inactive = function(self)
-	return self.colors.inactive .. "%= %F %="
+	return self.colors.active .. "%= %F %="
 end
 
 M.set_explorer = function(self)

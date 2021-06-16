@@ -7,10 +7,12 @@ end
 
 return require('packer').startup(function()
 	use 'junegunn/goyo.vim'
-	use { 'junegunn/seoul256.vim',
-		as = 'seoul256',
+	use { 'sainnhe/sonokai',
 		config = function()
-			vim.cmd('colo seoul256')
+			vim.g.sonokai_style = 'atlantis'
+			vim.g.sonokai_enable_italic = 1
+			vim.g.sonokai_disable_italic_comment = 0
+			vim.cmd('colo sonokai')
 		end }
 	use { 'andymass/vim-matchup',
 		config = function()
@@ -23,6 +25,23 @@ return require('packer').startup(function()
 		end }
 	use 'sheerun/vim-polyglot'
 	use 'nvim-lua/lsp-status.nvim'
+	use { 'vimwiki/vimwiki',
+		config = function()
+			vim.g.vimwiki_list = { {path= '~/dox/wiki/', syntax= 'markdown', ext= '.md'}}
+		end }
+	use { 'nvim-treesitter/nvim-treesitter',
+		run = ':TSUpdate',
+		config = function()
+			require'nvim-treesitter.configs'.setup {
+				ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+				ignore_install = { "javascript" }, -- List of parsers to ignore installing
+				highlight = {
+					enable = true,              -- false will disable the whole extension
+				},
+			}
+		end }
+	use 'neovim/nvim-lspconfig'
+	use { 'glepnir/lspsaga.nvim', config = function() require'lspsaga'.init_lsp_saga() end }
 	use 'preservim/tagbar'
 	use { 'mhartington/formatter.nvim',
 		config = function()
@@ -41,10 +60,7 @@ return require('packer').startup(function()
 				}
 			})
 		end }
-	use { 'norcalli/nvim-colorizer.lua',
-		config = function()
-			require'colorizer'.setup()
-		end }
+	use { 'norcalli/nvim-colorizer.lua', config = function() require'colorizer'.setup() end }
 	use { 'voldikss/vim-floaterm',
 		config = function()
 			vim.g.floaterm_autoinsert = 1
@@ -64,19 +80,11 @@ return require('packer').startup(function()
 			vim.g.nvim_tree_git_hl = 1
 		end }
 	use { 'nvim-telescope/telescope.nvim',
-		requires = {
-			{'nvim-lua/popup.nvim'},
-			{'nvim-lua/plenary.nvim'}
-		} }
+		requires = { {'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'} } }
 	use { 'akinsho/nvim-bufferline.lua',
 		requires = { 'kyazdani42/nvim-web-devicons' },
-		config = function()
-			require'bufferline'.setup()
-		end }
-	use { 'antoinemadec/FixCursorHold.nvim',
-		config = function()
-			vim.g.cursorhold_updatetime = 100
-		end }
+		config = function() require'bufferline'.setup() end }
+	use { 'antoinemadec/FixCursorHold.nvim', config = function() vim.g.cursorhold_updatetime = 100 end }
 	use { 'hrsh7th/nvim-compe',
 		config = function()
 			require'compe'.setup {
