@@ -22,7 +22,7 @@ bind('n', '<C-l>', '<C-w>l', opts)
 bind('n', '<C-h>', '<C-w>h', opts)
 
 bind('n', '<leader>e', ':NvimTreeToggle<cr>'       , opts)
-bind('n', '<leader>f', ':Telescope<cr>'            , opts)
+bind('n', '<leader>f', ':Telescope fd<cr>'            , opts)
 bind('n', '<leader>g', ':FloatermNew lazygit<cr>'  , opts)
 bind('n', '<leader>l', ':FloatermNew lf<cr>'       , opts)
 bind('n', '<leader>t', ':FloatermToggle<cr>'       , opts)

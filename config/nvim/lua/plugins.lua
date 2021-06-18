@@ -29,37 +29,7 @@ return require('packer').startup(function()
 		config = function()
 			vim.g.vimwiki_list = { {path= '~/dox/wiki/', syntax= 'markdown', ext= '.md'}}
 		end }
-	use { 'nvim-treesitter/nvim-treesitter',
-		run = ':TSUpdate',
-		config = function()
-			require'nvim-treesitter.configs'.setup {
-				ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
-				ignore_install = { "javascript" }, -- List of parsers to ignore installing
-				highlight = {
-					enable = true,              -- false will disable the whole extension
-				},
-			}
-		end }
-	use 'neovim/nvim-lspconfig'
-	use { 'glepnir/lspsaga.nvim', config = function() require'lspsaga'.init_lsp_saga() end }
 	use 'preservim/tagbar'
-	use { 'mhartington/formatter.nvim',
-		config = function()
-			require'formatter'.setup({
-				logging = false,
-				filetype = {
-					javascript = { -- prettier
-						function()
-							return {
-								exe = "prettier",
-								args = {"--stdin-filepath", vim.api.nvim_buf_get_name(0), '--single-quote'},
-								stdin = true
-							}
-						end
-					}
-				}
-			})
-		end }
 	use { 'norcalli/nvim-colorizer.lua', config = function() require'colorizer'.setup() end }
 	use { 'voldikss/vim-floaterm',
 		config = function()
@@ -85,6 +55,8 @@ return require('packer').startup(function()
 		requires = { 'kyazdani42/nvim-web-devicons' },
 		config = function() require'bufferline'.setup() end }
 	use { 'antoinemadec/FixCursorHold.nvim', config = function() vim.g.cursorhold_updatetime = 100 end }
+	use 'neovim/nvim-lspconfig'
+	use 'norcalli/snippets.nvim'
 	use { 'hrsh7th/nvim-compe',
 		config = function()
 			require'compe'.setup {
@@ -94,18 +66,20 @@ return require('packer').startup(function()
 				min_length = 1;
 				preselect = 'enable';
 				throttle_time = 80;
-				source_timeout = 300;
+				source_timeout = 200;
 				incomplete_delay = 400;
 				max_abbr_width = 100;
 				max_kind_width = 100;
 				max_menu_width = 100;
-				documentation = true;
+				documentation = false;
 
 				source = {
 					path = true;
 					buffer = true;
 					calc = true;
+					nvim_lsp = true;
 					nvim_lua = true;
+					snippets_nvim = true;
 				};
 			}
 		end }
