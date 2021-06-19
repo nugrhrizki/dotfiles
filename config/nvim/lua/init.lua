@@ -1,6 +1,4 @@
 require('plugins')
-require('generic')
-require('lsp-config')
 require('keybinds')
+require('lsp-config')
 require('statusline')
-require('autocmds')
