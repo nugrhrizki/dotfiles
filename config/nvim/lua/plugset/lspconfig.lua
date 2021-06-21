@@ -6,14 +6,11 @@ require'lspconfig'.html.setup {
 }
 
 require'lspconfig'.cssls.setup {
-	capabilities = capabilities,
+	capabilities = capabilities;
+	filetypes = { "css", "scss", "sass", "less" },
 }
 
 require'lspconfig'.bashls.setup{
-	capabilities = capabilities,
-}
-
-require'lspconfig'.diagnosticls.setup{
 	capabilities = capabilities,
 }
 
@@ -32,5 +29,9 @@ require'lspconfig'.jsonls.setup {
 }
 
 require'lspconfig'.yamlls.setup{
+	capabilities = capabilities,
+}
+
+require'lspconfig'.dartls.setup{
 	capabilities = capabilities,
 }

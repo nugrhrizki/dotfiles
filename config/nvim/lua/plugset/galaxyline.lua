@@ -38,6 +38,26 @@ gls.left[1] = {
 }
 
 gls.left[2] = {
+	FileSize = {
+		provider = 'FileSize',
+		condition = condition.hide_in_width,
+		separator = ' ',
+		separator_highlight = {'NONE', colors.bg},
+		highlight = {colors.grey, colors.bg}
+	}
+}
+
+gls.left[3] = {
+	FileName = {
+		provider = 'FileName',
+		condition = condition.hide_in_width,
+		separator = ' ',
+		separator_highlight = {'NONE', colors.bg},
+		highlight = {colors.grey, colors.bg}
+	}
+}
+
+gls.left[4] = {
 	GitIcon = {
 		provider = function() return ' ' end,
 		condition = condition.check_git_workspace,
@@ -47,7 +67,7 @@ gls.left[2] = {
 	}
 }
 
-gls.left[3] = {
+gls.left[5] = {
 	GitBranch = {
 		provider = 'GitBranch',
 		condition = condition.check_git_workspace,
@@ -57,7 +77,7 @@ gls.left[3] = {
 	}
 }
 
-gls.left[4] = {
+gls.left[6] = {
 	DiffAdd = {
 		provider = 'DiffAdd',
 		condition = condition.hide_in_width,
@@ -66,7 +86,7 @@ gls.left[4] = {
 	}
 }
 
-gls.left[5] = {
+gls.left[7] = {
 	DiffModified = {
 		provider = 'DiffModified',
 		condition = condition.hide_in_width,
@@ -75,7 +95,7 @@ gls.left[5] = {
 	}
 }
 
-gls.left[6] = {
+gls.left[8] = {
 	DiffRemove = {
 		provider = 'DiffRemove',
 		condition = condition.hide_in_width,
@@ -172,16 +192,22 @@ gls.right[9] = {
 }
 
 gls.right[10] = {
+	FileIcon = {
+		provider= 'FileIcon',
+		highlight = {colors.fg,colors.bg}
+	}
+}
+
+gls.right[11] = {
 	BufferType = {
 		provider = 'FileTypeName',
 		condition = condition.hide_in_width,
-		separator = ' ',
 		separator_highlight = {'NONE', colors.bg},
 		highlight = {colors.grey, colors.bg}
 	}
 }
 
-gls.right[11] = {
+gls.right[12] = {
 	FileEncode = {
 		provider = 'FileEncode',
 		condition = condition.hide_in_width,
@@ -191,7 +217,7 @@ gls.right[11] = {
 	}
 }
 
-gls.right[12] = {
+gls.right[13] = {
 	Space = {
 		provider = function()
 			return ' '
@@ -203,25 +229,16 @@ gls.right[12] = {
 }
 
 gls.short_line_left[1] = {
-  BufferType = {
-    provider = 'FileTypeName',
-    separator = ' ',
-    separator_highlight = {'NONE',colors.bg},
-    highlight = {colors.blue,colors.bg,'bold'}
-  }
+	BufferIcon = {
+		provider= 'BufferIcon',
+		highlight = {colors.fg,colors.bg}
+	}
 }
 
 gls.short_line_left[2] = {
-  SFileName = {
-    provider =  'SFileName',
-    condition = condition.buffer_not_empty,
-    highlight = {colors.fg,colors.bg,'bold'}
-  }
-}
-
-gls.short_line_right[1] = {
-  BufferIcon = {
-    provider= 'BufferIcon',
-    highlight = {colors.fg,colors.bg}
-  }
+	SFileName = {
+		provider =  'SFileName',
+		condition = condition.buffer_not_empty,
+		highlight = {colors.fg,colors.bg,'bold'}
+	}
 }

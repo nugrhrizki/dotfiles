@@ -6,3 +6,4 @@
 [ -f ~/.config/x11/xresources ] && xrdb ~/.config/x11/xresources
 
 exec dwm
+# exec startlxde

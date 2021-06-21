@@ -1,4 +1,3 @@
-require('plugins')
-require('keybinds')
-require('lsp-config')
-require('statusline')
+require('plugset.packer')
+require('plugset.lspconfig')
+require('plugset.galaxyline')
