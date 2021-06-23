@@ -1,37 +1,62 @@
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
+capabilities.textDocument.completion.completionItem.resolveSupport = {
+	properties = {
+		'documentation',
+		'detail',
+		'additionalTextEdits',
+	}
+}
 
-require'lspconfig'.html.setup {
+local lspconfig = require'lspconfig'
+
+lspconfig.html.setup {
 	capabilities = capabilities,
 }
 
-require'lspconfig'.cssls.setup {
+lspconfig.cssls.setup {
 	capabilities = capabilities;
 	filetypes = { "css", "scss", "sass", "less" },
 }
 
-require'lspconfig'.bashls.setup{
+lspconfig.bashls.setup{
 	capabilities = capabilities,
 }
 
-require'lspconfig'.gdscript.setup{
+lspconfig.gdscript.setup{
 	capabilities = capabilities,
 }
 
-require'lspconfig'.jsonls.setup {
-    commands = {
-      Format = {
-        function()
-          vim.lsp.buf.range_formatting({},{0,0},{vim.fn.line("$"),0})
-        end
-      }
-    }
+lspconfig.jsonls.setup {
+	commands = {
+		Format = {
+			function()
+				vim.lsp.buf.range_formatting({},{0,0},{vim.fn.line("$"),0})
+			end
+		}
+	}
 }
 
-require'lspconfig'.yamlls.setup{
+lspconfig.yamlls.setup{
 	capabilities = capabilities,
 }
 
-require'lspconfig'.dartls.setup{
+lspconfig.dartls.setup{
 	capabilities = capabilities,
+}
+
+lspconfig.tsserver.setup{
+	capabilities = capabilities,
+}
+
+lspconfig.ccls.setup {
+  init_options = {
+    compilationDatabaseDirectory = "build";
+    index = {
+      threads = 0;
+    };
+    clang = {
+      excludeArgs = { "-frounding-math"} ;
+    };
+  }
 }
