@@ -36,7 +36,7 @@ set smartcase
 set incsearch
 
 " Determine the behavior when part of a mapped key sequence has been received.
-set timeoutlen=300
+set timeoutlen=500
 
 " Always show the signcolumn
 set signcolumn=yes
@@ -78,7 +78,7 @@ set tabstop=4
 set smarttab
 
 " TODO: explain all
-set termguicolors
+" set termguicolors
 set noshowmode
 set noshowcmd
 set noruler
@@ -89,5 +89,5 @@ set nowritebackup
 set noswapfile
 set modelineexpr
 set list
-set listchars=tab:▸\ ,eol:¬,nbsp:␣,extends:…,precedes:<,extends:>,trail:·
+set listchars=tab:\|\ ,eol:¬,nbsp:␣,extends:…,precedes:<,extends:>,trail:·
 set wildignore=*/tmp/*,*.so,*.swp,*.zip,*.pyc,*.db,*.sqlite
