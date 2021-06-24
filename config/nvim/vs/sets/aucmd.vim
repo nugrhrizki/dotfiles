@@ -3,6 +3,8 @@ au BufWritePre * %s/\s\+$//e
 au BufWritePre * %s/\n\+\%$//e
 au BufWritePre *.[ch] %s/\%$/\r/e
 
+au BufWritePre *.elm lua vim.lsp.buf.formatting()
+
 " writings email mode
 au BufRead,BufNewFile /tmp/neomutt* let g:goyo_width=80
 au BufRead,BufNewFile /tmp/neomutt* :Goyo
