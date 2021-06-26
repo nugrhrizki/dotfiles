@@ -38,8 +38,8 @@ set incsearch
 " Determine the behavior when part of a mapped key sequence has been received.
 set timeoutlen=500
 
-" Always show the signcolumn
-set signcolumn=yes
+" Auto show the signcolumn
+set signcolumn=auto
 
 " This option helps to avoid all the hit-enter prompts caused by file
 " messages, don't give ins-completion-menu messages.  For example,
@@ -78,7 +78,7 @@ set tabstop=4
 set smarttab
 
 " TODO: explain all
-" set termguicolors
+set notermguicolors
 set noshowmode
 set noshowcmd
 set noruler

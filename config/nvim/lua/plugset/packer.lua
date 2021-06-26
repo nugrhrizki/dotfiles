@@ -7,44 +7,21 @@ end
 
 return require('packer').startup(function()
 	use 'junegunn/goyo.vim'
+	use 'junegunn/fzf.vim'
+	use { 'junegunn/fzf',
+		run = function() vim.fn['fzf#install']() end
+	}
 	use 'LukeSmithxyz/vimling'
 	use 'andymass/vim-matchup'
 	use 'sheerun/vim-polyglot'
+	use 'etdev/vim-hexcolor'
 	use 'vimwiki/vimwiki'
-	use 'voldikss/vim-floaterm'
-	use { 'shaunsingh/nord.nvim',
-		config = function()
-			vim.g.nord_contrast = true
-			vim.g.nord_borders = false
-			vim.g.nord_disable_background = false
-			require('nord').set()
-		end
-	}
-	use {
-		'hoob3rt/lualine.nvim',
-		requires = {'kyazdani42/nvim-web-devicons', opt = true},
-		config = function()
-			require('lualine').setup {
-				options = {
-					theme = 'nord',
-					section_separators = '',
-					component_separators = ''
-				}
-			}
-		end
-	}
 	use 'hrsh7th/nvim-compe'
-	use 'hrsh7th/vim-vsnip'
-	use 'hrsh7th/vim-vsnip-integ'
-	use 'rafamadriz/friendly-snippets'
 	use 'norcalli/snippets.nvim'
 	use 'neovim/nvim-lspconfig'
 	use {
 		'kyazdani42/nvim-tree.lua',
 		requires = { 'kyazdani42/nvim-web-devicons' }
-	}
-	use { 'nvim-telescope/telescope.nvim',
-		requires = { {'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'} }
 	}
 	use 'wbthomason/packer.nvim'
 end)

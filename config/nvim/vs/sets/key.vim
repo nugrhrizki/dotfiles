@@ -2,10 +2,7 @@ let mapleader = " "
 let localmapleader = " "
 
 " quick key :3
-nnoremap <silent> <C-p>          :Telescope fd<cr>
-nnoremap <silent> <leader>b      :Telescope buffers<cr>
 nnoremap <silent> <leader>e      :NvimTreeToggle<cr>
-nnoremap <silent> <leader>p      :Telescope commands<cr>
 nnoremap <silent> <leader>g      :FloatermNew lazygit<cr>
 nnoremap <silent> <leader>l      :FloatermNew lf<cr>
 nnoremap <silent> <leader>t      :FloatermToggle<cr>

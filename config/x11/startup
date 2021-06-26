@@ -7,9 +7,9 @@ export SSH_AUTH_SOCK
 /usr/bin/redshift &
 /usr/bin/xbacklight -set 5
 
-[ -f $XDG_CONFIG_HOME/wallpaper.png ] && /usr/bin/xwallpaper --zoom $XDG_CONFIG_HOME/wallpaper.png
-[ -f $XDG_CONFIG_HOME/wallpaper.jpg ] && /usr/bin/xwallpaper --zoom $XDG_CONFIG_HOME/wallpaper.jpg
-[ -f $XDG_CONFIG_HOME/wallpaper.jpeg ] && /usr/bin/xwallpaper --zoom $XDG_CONFIG_HOME/wallpaper.jpeg
+# [ -f $XDG_CONFIG_HOME/wallpaper.png ] && /usr/bin/xwallpaper --zoom $XDG_CONFIG_HOME/wallpaper.png
+# [ -f $XDG_CONFIG_HOME/wallpaper.jpg ] && /usr/bin/xwallpaper --zoom $XDG_CONFIG_HOME/wallpaper.jpg
+# [ -f $XDG_CONFIG_HOME/wallpaper.jpeg ] && /usr/bin/xwallpaper --zoom $XDG_CONFIG_HOME/wallpaper.jpeg
 
 # This line autostarts an instance of Pulseaudio that does not exit on idle.
 # This is "necessary" on Artix due to a current bug between PA and
